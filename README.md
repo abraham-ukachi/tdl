@@ -251,7 +251,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 15 | *`Theme Update - API`* | **theme_update.php** | Pending |
 | 16 | *`Internationalization - API`* | **internationalization.php** | Pending |
 | 17 | *`Settings - Page`* | **settings.php** | Pending |
-| 18 | *`Welcome - Page`* | **welcome.php** | Pending |
+| 18 | *`Welcome - Page`* | **welcome.php** | _*In progress*_ |
 | 19 | *`Goodbye - Page`* | **goodbye.php** | Pending |
 | 20 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](assets/animations/slide-from-up-animation.css) |
 | 21 | *`Welcome - Stylesheet`* | **welcome-styles.css** | Pending |
