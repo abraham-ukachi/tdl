@@ -254,16 +254,16 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 8 | *`User - API`* | **User.php** | Pending |
 | 9 | *`ResponseHandler - API`* | **ResponseHandler.php** | Pending |
 | 10 | *`TodoList - API`* | **TodoList.php** | Pending |
-| 11 | *`Pop In - Animation`* | **pop-in-animation.css** | Pending |
-| 12 | *`Fade In - Animation`* | **fade-in-animation.css** | Pending |
-| 13 | *`Slide From Down - Animation`* | **slide-from-down-animation.css** | Pending |
+| 11 | *`Pop In - Animation`* | **pop-in-animation.css** | [Done](assets/animations/pop-in-animation.css) |
+| 12 | *`Fade In - Animation`* | **fade-in-animation.css** | [Done](assets/animations/fade-in-animation.css) |
+| 13 | *`Slide From Down - Animation`* | **slide-from-down-animation.css** | [Done](assets/animations/slide-from-down-animation.css) |
 | 14 | *`Language Update - API`* | **lang_update.php** | Pending |
 | 15 | *`Theme Update - API`* | **theme_update.php** | Pending |
 | 16 | *`Internationalization - API`* | **internationalization.php** | Pending |
 | 17 | *`Settings - Page`* | **settings.php** | Pending |
 | 18 | *`Welcome - Page`* | **welcome.php** | Pending |
 | 19 | *`Goodbye - Page`* | **goodbye.php** | Pending |
-| 20 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | Pending |
+| 20 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](assets/animations/slide-from-up-animation.css) |
 | 21 | *`Welcome - Stylesheet`* | **welcome-styles.css** | Pending |
 | 22 | *`Home - Stylesheet`* | **home-styles.css** | Pending |
  
