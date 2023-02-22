@@ -7,7 +7,6 @@ For this project, I decided to create a MySQL Database named **`tdl`** obv. 😜
 
 - *`users`*: All currently registered users.
 - *`todolists`*: All created to-do lists by registered users.
-- *`todolists_owners`*: All owners of the created to-do lists.
 - *`tasks`*: All tasks created by a user in relation to a previously created `todolists`.
 - *`tasks_audit`*: To keep changes made to the `tasks` table.
 - *`todolists_priv`* (Privileges) : All permissions that allow a user to **CREATE**, **UPDATE** and/or **DELETE** a to-do list for another user.
@@ -80,7 +79,6 @@ The folder & file structure of this project:
 - - * *styles.css*
 - - [**stylesheets**](./assets/stylesheets)
 - - * *home-styles.css*
-- - * *ddd-studio-styles.css*
 - - * *splash-screen-styles.css*
 - - * *login-styles.css*
 - - * *register-styles.css*
@@ -109,7 +107,6 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 > NOTE: **`⨁`** = _FOREIGN_KEY_
 
 ### `users` - MySQL Table
-> ⚠️  WARNING: This table does not contain any TRIGGERs (for now 😉)
 
 | No. | Name | Type | Length | Null | Default | Extra |
 |:----|:-----|:-----|:-------|:-----|:--------|:-------|
@@ -123,26 +120,14 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 
 
 ### `todolists` - MySQL Table
-> ⚠️  WARNING: This table contains one or more TRIGGERs
 
 | No. | Name | Type | Length | Null | Default | Extra |
 |:----|:-----|:-----|:-------|:-----|:--------|:-------|
 | 1 | *`id`* 🔑  | **INT** | 10 | No | NULL | **AUTO_INCREMENT** |
 | 2 | *`name`* | **VARCHAR** | 60 | No | NULL | - |
 | 3 | *`user_id`* ⨁ | **INT** | 10 | No | NULL | - |
-| 4 | *`created_at`* | **DATETIME** | - | Yes | NULL | - |
-
-
-
-### `todolists_owners` - MySQL Table
-> ⚠️  WARNING: This table is used by one or more TRIGGERs from the `todolists` table.
-
-| No. | Name | Type | Length | Null | Default | Extra |
-|:----|:-----|:-----|:-------|:-----|:--------|:-------|
-| 1 | *`id`* 🔑  | **INT** | 10 | No | NULL | **AUTO_INCREMENT** |
-| 2 | *`todolist_id`* ⨁  | **INT** | 10 | No | NULL | - |
-| 3 | *`user_id`* ⨁  | **INT** | 10 | No | NULL | - |
-| 4 | *`action`* | **VARCHAR** | 30 | Yes | NULL | - |
+| 4 | *`owner_id`* ⨁ | **INT** | 10 | No | NULL | - |
+| 5 | *`created_at`* | **DATETIME** | - | Yes | NULL | - |
 
 
 
@@ -154,7 +139,7 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 | 1 | *`id`* 🔑  | **INT** | 10 | No | NULL | **AUTO_INCREMENT** |
 | 2 | *`description`* | **VARCHAR** | 255 | No | NULL | - |
 | 3 | *`todolist_id`* ⨁ | **INT** | 10 | No | NULL | - |
-| 4 | *`completed`* | **BOOLEAN** | 0 | Yes | NULL | - |
+| 4 | *`completed`* | **BOOLEAN** | 1 | Yes | NULL | - |
 | 5 | *`completed_at`* | **DATETIME** | - | Yes | NULL | - |
 | 6 | *`created_at`* | **DATETIME** | - | Yes | NULL | - |
 
@@ -168,7 +153,7 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 | 1 | *`id`* 🔑  | **INT** | 10 | No | NULL | **AUTO_INCREMENT** |
 | 2 | *`task_id`* ⨁ | **INT** | 10 | No | NULL | - |
 | 3 | *`task_description`* ⨁ | **VARCHAR** | 255 | No | NULL | - |
-| 4 | *`task_completed`* ⨁ | **BOOLEAN** | 0 | Yes | NULL | - |
+| 4 | *`task_completed`* ⨁ | **BOOLEAN** | 1 | Yes | NULL | - |
 | 5 | *`changed_at`* | **DATETIME** | - | Yes | NULL | - |
 | 6 | *`action`* | **VARCHAR** | 30 | Yes | NULL | - |
 
@@ -179,7 +164,7 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 | No. | Name | Type | Length | Null | Default | Extra |
 |:----|:-----|:-----|:-------|:-----|:--------|:-------|
 | 1 | *`grantor_id`* ⨁ | **INT** | 10 | No | NULL | - |
-| 2 | *`user_id`* | **INT** | 10 | No | NULL | - |
+| 2 | *`user_id`* ⨁ | **INT** | 10 | No | NULL | - |
 | 3 | *`timestamp`* | **TIMESTAMP** | - | Yes | NULL | - |
 | 4 | *`create_priv`* | **TINYINT** | 0 | Yes | NULL | - |
 | 5 | *`update_priv`* | **TINYINT** | 0 | Yes | NULL | - |
