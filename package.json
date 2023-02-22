@@ -1,0 +1,27 @@
+{
+  "name": "tdl",
+  "version": "0.0.1",
+  "description": "A simple to-do list web app using PHP and JavaScript",
+  "main": "index.php",
+  "scripts": {
+    "test": "open http://localhost/tdl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraham-ukachi/tdl.git"
+  },
+  "keywords": [
+    "to-do",
+    "todos",
+    "php",
+    "tasks",
+    "javascript",
+    "pdo"
+  ],
+  "author": "Abraham Ukachi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abraham-ukachi/tdl/issues"
+  },
+  "homepage": "https://github.com/abraham-ukachi/tdl#readme"
+}
