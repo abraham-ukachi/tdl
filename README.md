@@ -256,7 +256,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 20 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](assets/animations/slide-from-up-animation.css) |
 | 21 | *`Welcome - Stylesheet`* | **welcome-styles.css** | [Done](assets/stylesheets/welcome-styles.css)\* |
 | 22 | *`Home - Stylesheet`* | **home-styles.css** | Pending |
-| 23 | *`App - API`* | **app.php** | Pending |
+| 23 | *`App - API`* | **app.php** | [Done](api/app.php)\* |
 
 > NOTE: (\*) = still needs to be updated. <br>
 > There's certainly a couple of file I must've forgot or not added yet,so I'll keep the above list updated obv. :)
