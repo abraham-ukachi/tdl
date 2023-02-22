@@ -249,7 +249,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 13 | *`Slide From Down - Animation`* | **slide-from-down-animation.css** | [Done](assets/animations/slide-from-down-animation.css) |
 | 14 | *`Language Update - API`* | **lang_update.php** | Pending |
 | 15 | *`Theme Update - API`* | **theme_update.php** | Pending |
-| 16 | *`Internationalization - API`* | **internationalization.php** | Pending |
+| 16 | *`Internationalization - API`* | **internationalization.php** | [Done](api/internationalization.php)\* |
 | 17 | *`Settings - Page`* | **settings.php** | Pending |
 | 18 | *`Welcome - Page`* | **welcome.php** | _*In progress*_ |
 | 19 | *`Goodbye - Page`* | **goodbye.php** | Pending |
