@@ -108,6 +108,8 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 
 ### `users` - MySQL Table
 
+This table has a [**one-to-many**](https://www.metabase.com/learn/databases/table-relationships#one-to-many-relationship) relationship with [*`todolists`*](#`todolists`---MySQL-Table) table.
+
 | No. | Name | Type | Length | Null | Default | Extra |
 |:----|:-----|:-----|:-------|:-----|:--------|:-------|
 | 1 | *`id`* 🔑 | **INT** | 10 | No | NULL | **AUTO_INCREMENT** | 
@@ -117,9 +119,11 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 | 5 | *`lastname`* | **VARCHAR** | 30 | No | NULL | - | 
 | 6 | *`created_at`* | **DATETIME** | - | Yes | NULL | - |  
 
-
+> NOTE:
 
 ### `todolists` - MySQL Table
+
+This table has a [**many-to-one**](https://www.metabase.com/learn/databases/table-relationships#one-to-many-relationship) relationship with [*`users`*](#`users`---MySQL-Table) table.
 
 | No. | Name | Type | Length | Null | Default | Extra |
 |:----|:-----|:-----|:-------|:-----|:--------|:-------|
@@ -129,7 +133,7 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 | 4 | *`owner_id`* ⨁ | **INT** | 10 | No | NULL | - |
 | 5 | *`created_at`* | **DATETIME** | - | Yes | NULL | - |
 
-
+> NOTE: 
 
 ### `tasks` - MySQL Table
 > ⚠️  WARNING: This table contains one or more TRIGGERs
@@ -143,6 +147,7 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 | 5 | *`completed_at`* | **DATETIME** | - | Yes | NULL | - |
 | 6 | *`created_at`* | **DATETIME** | - | Yes | NULL | - |
 
+> NOTE:
 
 
 ### `tasks_audit` - MySQL Table
@@ -157,7 +162,7 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 | 5 | *`changed_at`* | **DATETIME** | - | Yes | NULL | - |
 | 6 | *`action`* | **VARCHAR** | 30 | Yes | NULL | - |
 
-
+> NOTE:
 
 ### `todolists_priv` - MySQL Table
 
