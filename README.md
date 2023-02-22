@@ -251,12 +251,12 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 15 | *`Theme Update - API`* | **theme_update.php** | Pending |
 | 16 | *`Internationalization - API`* | **internationalization.php** | [Done](api/internationalization.php)\* |
 | 17 | *`Settings - Page`* | **settings.php** | Pending |
-| 18 | *`Welcome - Page`* | **welcome.php** | _*In progress*_ |
+| 18 | *`Welcome - Page`* | **welcome.php** | [Done](welcome.php)\* |
 | 19 | *`Goodbye - Page`* | **goodbye.php** | Pending |
 | 20 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](assets/animations/slide-from-up-animation.css) |
-| 21 | *`Welcome - Stylesheet`* | **welcome-styles.css** | Pending |
+| 21 | *`Welcome - Stylesheet`* | **welcome-styles.css** | [Done](assets/stylesheets/welcome-styles.css)\* |
 | 22 | *`Home - Stylesheet`* | **home-styles.css** | Pending |
- 
+| 23 | *`App - API`* | **app.php** | Pending |
 
 > NOTE: (\*) = still needs to be updated. <br>
 > There's certainly a couple of file I must've forgot or not added yet,so I'll keep the above list updated obv. :)
