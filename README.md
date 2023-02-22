@@ -3,14 +3,14 @@
 
 A school project to create a simple **to-do list** Web App using `PHP` and `JavaScript`.
 
-For this project, I decided to create a MySQL Database named **`tdl`** obv. 😜 with the following tables:
+For this project, I decided to create a MySQL Database named **`tdl`** obv. 😜 with the following tables (including a couple of TRIGGERS):
 
 - *`users`*: All currently registered users.
 - *`todolists`*: All created to-do lists by registered users.
 - *`todolists_owners`*: All to-do lists and their corresponding owners.
-- *`tasks`*: All tasks created by a user in relation to a previously created `todolist`.
+- *`tasks`*: All tasks created by a user in relation to a previously created `todolists`.
 - *`tasks_audit`*: To keep changes made to the `tasks` table.
-- *`priv`* (Privileges) : All users allowed to create a `todolist` for another user / owner / host.
+- *`todolists_priv`* (Privileges) : All permissions that allow a user to **CREATE**, **UPDATE** and/or **DELETE** a `todolists` for another user.
 
 > NOTE: For more info, [read the Database section](#Database) of this *README*. 
 
@@ -159,7 +159,7 @@ The following tables were created in a MySQL database named **`tdl`** via [PDO](
 
 
 
-### `priv` - MySQL Table
+### `todolists_priv` - MySQL Table
 
 | No. | Name | Type | Length | Null | Default | Extra |
 |:----|:-----|:-----|:-------|:-----|:--------|:-------|
