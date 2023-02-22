@@ -64,7 +64,7 @@ The folder & file structure of this project:
 - [**api**](./api)
 - - *Database.php*
 - - *User.php*
-- - *Todo.php*
+- - *TodoList.php*
 - - ...
 - [**assets**](./assets/)
 - - [**logos**](./assets/logos/)
