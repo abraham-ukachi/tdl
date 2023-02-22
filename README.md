@@ -248,7 +248,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 2 | *`Login - Page`* | **login.php** | Pending |
 | 3 | *`Profile - Page`* | **profile.php** | Pending |
 | 4 | *`Admin - Page`* | **admin.php** | Pending | 
-| 5 | *`SplashScreen - Page`* | **splash-screen.php** | Pending |
+| 5 | *`SplashScreen - Page`* | **splash-screen.php** | _*In progress*_ |
 | 6 | *`Logout - Page`* | **logout.php** | Pending |
 | 7 | *`Database - API`* | **Database.php** | Pending |
 | 8 | *`User - API`* | **User.php** | Pending |
