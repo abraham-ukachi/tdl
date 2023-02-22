@@ -7,24 +7,39 @@ For this project, I decided to create a MySQL Database named **`tdl`** obv. 😜
 
 - *`users`*: All currently registered users.
 - *`todolists`*: All created to-do lists by registered users.
-- *`todolists_owners`*: All to-do lists and their corresponding owners.
+- *`todolists_owners`*: All owners of the created to-do lists.
 - *`tasks`*: All tasks created by a user in relation to a previously created `todolists`.
 - *`tasks_audit`*: To keep changes made to the `tasks` table.
-- *`todolists_priv`* (Privileges) : All permissions that allow a user to **CREATE**, **UPDATE** and/or **DELETE** a `todolists` for another user.
+- *`todolists_priv`* (Privileges) : All permissions that allow a user to **CREATE**, **UPDATE** and/or **DELETE** a to-do list for another user.
 
 > NOTE: For more info, [read the Database section](#Database) of this *README*. 
 
 
 ## Description 
-> Original text in French: 
+> Original text in French: Les jobs étant plus longs et plus compliqués, votre emploi du temps devient de plus en plus chargé et certaines tâches risquent de passer à la trappe. C’est un souci ...
+En tant que programmeur, la solution est toujours de développer les outils permettant de pallier aux défaillances de faibles humains. C’est pourquoi ce Job consiste à développer votre propre ToDoList. 
 
-You
+The jobs being longer and more complicated, your schedule becomes more and more busy and some tasks may fall by the wayside. It's a concern...
+
+As a programmer, the solution is always to develop the tools to overcome the shortcomings of weak humans.
+That's why this Job is about developing your own ToDoList.
 
 ## Requirements
 
 These are a couple of the main requirements for this school project:
 
-1. Create  
+1. The site must include an **index.php** page allowing any user to create an account and connect to it. Once logged in, the site user should be redirected to a **todolist.php** page. This page should contain:
+
+- A list of tasks to do accompanied by their creation date. It must be possible, with a button or otherwise, to specify that a task has been completed or cancelled. This task should be removed from the list
+- A list of completed tasks where each task is accompanied by the date it was completed.
+- An input allowing to create a task.
+- A disconnect button to... disconnect.
+
+**With the exception of the logout button, none of the possible actions on the _`todolist.php`_ page should cause the page to reload.**
+ 
+2. _(Optional)_ For people who want help planning their tasks (and who are brave developers), add to your todolist.php page:
+- An input allowing to give planning rights to a user other than yourself.
+- A drop-down menu containing the list of users for whom you can schedule tasks (including yourself). This drop-down menu will allow you to choose who to schedule a new task to.
 
 
 ## Jobs
