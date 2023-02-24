@@ -48,7 +48,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`Home - Page`* | **index.php** | _*In progress*_ |
+| 1 | *`Home - Page`* | **index.php** | _*In progress*i_ |
 | 2 | *`Todolist - Page`* | **todolist.php** | Pending |
 | 3 | *`Todolist - Database - SQL`* | **tdl.sql** | Pending |
 
@@ -171,9 +171,9 @@ This table has a [**many-to-one**](https://www.metabase.com/learn/databases/tabl
 | 1 | *`grantor_id`* ⨁ | **INT** | 10 | No | NULL | - |
 | 2 | *`user_id`* ⨁ | **INT** | 10 | No | NULL | - |
 | 3 | *`timestamp`* | **TIMESTAMP** | - | Yes | NULL | - |
-| 4 | *`create_priv`* | **TINYINT** | 0 | Yes | NULL | - |
-| 5 | *`update_priv`* | **TINYINT** | 0 | Yes | NULL | - |
-| 6 | *`delete_priv`* | **TINYINT** | 0 | Yes | NULL | - |
+| 4 | *`create_priv`* | **TINYINT** | 1 | Yes | NULL | - |
+| 5 | *`update_priv`* | **TINYINT** | 1 | Yes | NULL | - |
+| 6 | *`delete_priv`* | **TINYINT** | 1 | Yes | NULL | - |
 
 > NOTE: `grantor_id` is the id number of the person granting the permissions to the grantee. ;)
 
