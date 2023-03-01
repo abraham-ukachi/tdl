@@ -37,43 +37,47 @@
 
 
 // Define default constant variables
-const LANG = 'en'; // <- default language. Other supported languages include 'fr'(French) and 'ru'(Russian) & 'es'(Spanish).
-const THEME = 'dark'; // <- default theme. Other supported themes are 'light' & 'classic'
+export const LANG = 'en'; // <- default language. Other supported languages include 'fr'(French) and 'ru'(Russian) & 'es'(Spanish).
+export const THEME = 'dark'; // <- default theme. Other supported themes are 'light' & 'classic'
 // main pages
-const PAGE_HOME = 'index'; // <- default or home page of the App.
-const PAGE_LOGIN = 'login';
-const PAGE_REGISTER = 'register';
-const PAGE_PROFILE = 'profile';
-const PAGE_TODOLIST = 'todolist';
-const PAGE_SETTINGS = 'settings';
-const PAGE_SPLASH_SCREEN = 'splash-screen';
+export const PAGE_HOME = 'index'; // <- default or home page of the App.
+export const PAGE_LOGIN = 'login';
+export const PAGE_REGISTER = 'register';
+export const PAGE_PROFILE = 'profile';
+export const PAGE_TODOLIST = 'todolist';
+export const PAGE_SETTINGS = 'settings';
+export const PAGE_SPLASH_SCREEN = 'splash-screen';
 
-const EXT_PAGE = 'php'; // <- File extension of the above pages. Use 'html' for HTML Pages. 
+export const EXT_PAGE = 'php'; // <- File extension of the above pages. Use 'html' for HTML Pages. 
 // layouts
-const LAYOUT_MOBILE = 'mobile';
-const LAYOUT_LAPTOP = 'laptop';
+export const LAYOUT_MOBILE = 'mobile';
+export const LAYOUT_LAPTOP = 'laptop';
 // dialogs
-const DIALOG_THEME = 'theme';
-const DIALOG_TRANSLATE = 'translate';
+export const DIALOG_THEME = 'theme';
+export const DIALOG_TRANSLATE = 'translate';
 
 
 // directories
-const DIR_BASE = 'tdl'; // <- base
-const DIR_API = 'api'; // <- api
+export const DIR_BASE = 'tdl'; // <- base
+export const DIR_API = 'api'; // <- api
 // PHP files
-const PHP_LANGUAGE_UPDATE = 'lang_update.php';
-const PHP_THEME_UPDATE = 'theme_update.php';
+export const PHP_LANGUAGE_UPDATE = 'lang_update.php';
+export const PHP_THEME_UPDATE = 'theme_update.php';
 
 // views
-const VIEW_EDITOR = 'editor';
-const VIEW_SEARCH = 'search';
-const VIEW_PRIVILEGES = 'priv';
+export const VIEW_EDITOR = 'editor';
+export const VIEW_SEARCH = 'search';
+export const VIEW_PRIVILEGES = 'priv';
 
+// types
+export const DEFAULT_TYPE = 1;
+export const INNER_TYPE = 2;
+export const ASIDE_TYPE = 3;
 
 // Create a `ToDoListApp` class
 // TODO: Rename this class to just `App` ?
-class ToDoListApp {
-  
+export class ToDoListApp {
+
   // Define some constant variables
   
   // Define some private properties
@@ -200,7 +204,7 @@ class ToDoListApp {
   /**
    * Returns the current layout (eg. mobile or laptop) of the app. 
    *
-   * @return { String } layout
+   * @returns { String } layout
    */
   get currentLayout() {
     return (typeof(this._layout) !== 'undefined') ? this._layout : "";
@@ -210,7 +214,7 @@ class ToDoListApp {
   /**
    * Returns the dialogs view element
    *
-   * @return { Element } dialogsView
+   * @returns { Element } dialogsView
    */
   get dialogsView() {
     return document.getElementById('dialogsContainer');
@@ -221,7 +225,7 @@ class ToDoListApp {
    * Returns the done button of the current `page`.
    * NOTE: This element doesn't always exist in all pages, and if so will return `null`.
    *  
-   * @return { Element } doneIconButtonEl
+   * @returns { Element } doneIconButtonEl
    *
    */
   get doneIconButtonEl() {
@@ -229,9 +233,9 @@ class ToDoListApp {
   }
 
   /**
-   * Returns the backdrop element
+   * Returns the backdrop element of this App.
    *
-   * @return { Element } backdropEl
+   * @returns { Element } backdropEl
    */
   get backdropEl() {
     return document.getElementById('backdrop');
@@ -239,25 +243,83 @@ class ToDoListApp {
 
 
   /**
-   * Returns the inner `<div id="backdrop">` element.
+   * Returns the inner `<div id="innerBackdrop">` element of this App.
    * NOTE: This is the backdrop inside the app layout's `<main>` element.
+   *
+   * @returns { Element } innerBackdropEl
    */
   get innerBackdropEl() {
     return document.getElementById('innerBackdrop');
   }
 
 
-
+  /**
+   * Returns the aside `<div id="asideBackdrop">` element of this App.
+   * NOTE: This is the backdrop inside the app layout's `<main>` element.
+   *
+   * @returns { Element } asideBackdropEl
+   */
+  get asideBackdropEl() {
+    return document.getElementById('asideBackdrop');
+  }
+  
   /**
    * Returns the id of the currently opened dialog
    *
-   * @return { String } 
+   * @returns { String } 
    */
   get currentDialogId() {
-    // get the list of currently opened dialog element as `openedDialog`
+    // get the list of currently opened dialog element as `openedDialogList`
     let openDialogList = document.querySelector('.dialog:not([hidden])');
     return openDialogList[0] ? openDialogList[0].id.split('Dialog')[0] : '';
   }
+
+  /**
+   * Returns the id of the currently opened menu
+   *
+   * @returns { String } 
+   */
+  get currentMenuId() {
+    // initialize the `result` variable
+    let result = '';
+
+    // get the opened menu element as `openMenuEl`
+    let openMenuEl = document.querySelector('.menu[opened]');
+
+    // if there's actually an opened menu element...
+    if (openMenuEl) {
+      // ...update the result with the menu's id
+      result = openMenuEl.id;
+    }
+
+    // return the `result`
+    return result;
+  }
+
+
+  /**
+   * Returns TRUE if a menu has been opened.
+   * NOTE: This method checks the availability of a current menu id.
+   *
+   * @returns { Boolean }
+   */
+  get isMenuOpened() {
+    // using our beloved ternary statement w/ --force TRUE && FALSE ;)
+    return (this.currentMenuId.length) ? true : false;
+  }
+
+
+  /**
+   * Returns TRUE if a dialog has been opened.
+   * NOTE: This method checks the availability of a current dialog id.
+   *
+   * @returns { Boolean }
+   */
+  get isDialogOpened() {
+    // using our beloved ternary statement w/ --force TRUE && FALSE ;)
+    return (this.currentDialogId.length) ? true : false;
+  }
+
 
   /* *>> END of Public Getter <<* */
 
@@ -266,7 +328,18 @@ class ToDoListApp {
 
 
   /* >> Public Methods << */
-  
+ 
+
+  /* === LIFE CYCLES === */
+
+  /**
+   * Handler that is called whenever the app is ready to be used
+   * NOTE: You can override this method
+   * */
+  onReady() {}
+
+
+  /* === END of the LIFE CYCLES == */
 
   /**
    * Updates the page of the web App.
@@ -279,7 +352,7 @@ class ToDoListApp {
     // Update the private `_page` variable
     this._page = page;
 
-    // do something after `page` has been updated.
+    // TODO: do something after `page` has been updated.
   }
 
   
@@ -313,6 +386,19 @@ class ToDoListApp {
   }
 
 
+  /**
+   * Returns the backdrop element with the given `type`
+   *
+   * @param { Number } type - The type of the backdrop (i.e. 1 [default], 2 [inner] or 3 [aside] )
+   *
+   * @returns { Element }
+   */
+  getBackdropElement(type = DEFAULT_TYPE) {
+    // return the correct backdrop element using our beloved ternary statement ;)
+    return (type === ASIDE_TYPE) ? this.asideBackdropEl : ( type === INNER_TYPE ? this.innerBackdropEl: this.backdropEl);
+  }
+
+  
 
   /**
    * Method used to install a media-query watcher.
@@ -355,15 +441,15 @@ class ToDoListApp {
    *       which are fired whenever the URL (location object) changes.
    *
    * Example:
-   *  let _onRouteChange = (page, params, url) => { // do something here when page changes  }
+   *  let _onRouteChange = (page, params, url) => { // add code here  }
    *
    *  let tdlApp = new ToDoListApp();
    *  tdlApp.installRouteWatcher(_onRouteChange);
    *
-   *  // Now, you can change the route / page using the `changeRoute()` method
+   *  // Now, you can easily change the route using the `changeRoute()` method
    *  tdlApp.changeRoute('todolist');
    *
-   *  @param { Function } callback - function that is executed when the 'page' event is fired
+   *  @param { Function } callback - function that is executed when the 'routechange' event is fired
    */
   installRouteWatcher(callback) {
 
@@ -381,6 +467,7 @@ class ToDoListApp {
 
       console.log(`popstate has been fired! event => `, event);
     });
+
 
     // Listening to the 'locationchange' event w/ the `onLocationChange` method
     window.addEventListener('routechange', (event) => {
@@ -430,7 +517,7 @@ class ToDoListApp {
     
     // Creating the `href` with the specified `page` and `params`...
     // HACK: append the page extension (i.e. '.php')
-    let href = `/${page}.${EXT_PAGE}` + Object.keys(params).length ? '?' + new URLSearchParams(params).toString() : '';
+    let href = `${page}.${EXT_PAGE}` + Object.keys(params).length ? '?' + new URLSearchParams(params).toString() : '';
 
     // If `replaceState` is TRUE...
     if (replaceState) {
@@ -446,7 +533,7 @@ class ToDoListApp {
     window.dispatchEvent(new CustomEvent('routechange', {'detail': {page, params, replaceState, href}}));
 
     // DEBUG [4dbsmaster]: tell me about this href ;)
-    console.log(`\x1b[32m[changeRoute]: href => ${href}\x1b[0m`);
+    console.log(`\x1b[32m[changeRoute]: page => ${page} & href => ${href}\x1b[0m`);
 
   }
 
@@ -474,14 +561,14 @@ class ToDoListApp {
         // adding listeners to the profile page...
 
         this._addTodolistListeners();
-
+        
         break;
       case PAGE_PROFILE:
         // add listeners for the profile page
         break;
       case PAGE_SETTINGS:
         // adding listeners to the settings page...
-
+        
         // add language settings listeners
         this._addLanguageSettingsListeners();
         
@@ -519,7 +606,7 @@ class ToDoListApp {
    if (!dialogEl || !dialogId.length) { return }
 
 
-   // Show the backdrop 
+   // Show the backdrop
    // by setting the `hidden` attribute of `backdropEl` to `false`
    this.backdropEl.hidden = false;
 
@@ -533,7 +620,69 @@ class ToDoListApp {
    // DEBUG [4dbsmaster]: tell me about it :)
    // console.log(`[openDialogById](3): dialogEl => `, dialogEl);
   
+ }
 
+
+ /**
+  * Opens a menu with the given `menuId` at the specified `duration`.
+  *
+  * Example:
+  *   tdlApp.openMenuById('tdl', DEFAULT_TYPE, 1000, () => console.log('menu opened!'));
+  *
+  * @param { String } menuId - Id of the menu without the extension (e.g. 'listInnerMenu' must be just 'list')
+  * @param { Number } type - The type of menu to open (i.e 1 [default], 2 [inner] or 3 [aside])
+  * @param { Number } duration - How long it takes for the menu to be open
+  * @param { Function } callback - function that is called after the menu opens
+  *
+  * TODO: Use a Promise instead
+  */
+ openMenuById(menuId, type = DEFAULT_TYPE, duration = 500, callback = null) {
+   // do nothing if there's already an opened menu
+   if (this.isMenuOpened) { return }
+
+   // get a reference of the backdrop element with the given `type` as `backdropEl`
+   let backdropEl = this.getBackdropElement(type);
+    
+   // get a reference of the menu element with the given `menuId` as `menuEl`
+   // NOTE: Just having some fun w/ js by separating the id (name + ext)
+   let menuEl = document.getElementById(menuId + this.#_getMenuExtByType(type));
+
+   // TODO: Update the menu's transition duration here
+
+   // Show the backdrop
+   // by setting the `hidden` attribute / property of `backdropEl` to `false`
+   backdropEl.hidden = false;
+   // Now, show the menu element
+   menuEl.hidden = false;
+
+
+   // adding the `opening` attribute / property to both `backdropEl` and `menuEl`...
+
+   backdropEl.setAttribute('opening', '');
+   menuEl.setAttribute('opening', '');
+   
+   // clear any active `menuTimer`
+   clearTimeout(this._menuTimer);
+
+   this._menuTimer = setTimeout(() => {
+     // removing the `opening` attribute / property from both `backdropEl and `menuEl`...
+     backdropEl.removeAttribute('opening');
+     menuEl.removeAttribute('opening');
+
+     // add an `opened` attribute to `menuEl`
+     menuEl.setAttribute('opened', '');
+
+     // if there's a callback function, execute / run it !
+     if (callback) { callback() }
+
+     // DEBUG [4dbsmaster](2): tell me about it ;)
+     console.log(`\x1b[35m[openMenuById]: backdrop & menu opened\x1b[0m`);
+     
+   }, duration);
+
+   // DEBUG [4dbsmaster](1): tell me about it :)
+   console.log(`\x1b[35m[openMenuById]: menuId => ${menuId} & type => ${type} & duration => ${duration}\x1b[0m`);
+  
  }
 
  
@@ -562,6 +711,68 @@ class ToDoListApp {
    this.backdropEl.hidden = true;
  }
 
+ /**
+  * Method used to close any currently opened menu
+  * 
+  * Example:
+  *   tdlApp.closeMenu(DEFAULT_TYPE, 1000, () => console.log('menu closed'));
+  *
+  * @param { Number } type
+  * @param { Number } duration
+  * @param { Function } callback
+  *
+  * TODO: Use a Promise instead
+  */
+ closeMenu(type = DEFAULT_TYPE,  duration = 500, callback = null) {
+   // Do nothing if there's no menu open
+   if (!this.isMenuOpened) { return }
+   
+   // get a reference of the backdrop element with the given `type` as `backdropEl`
+   let backdropEl = this.getBackdropElement(type);
+    
+   // get a reference of the menu element with the `currentMenuId`
+   let menuEl = document.getElementById(this.currentMenuId);
+    
+   // TODO: Update the menu's transition duration here 
+    
+
+    
+   // adding the `closing` attribute / property to both `backdropEl` and `menuEl`...
+
+   backdropEl.setAttribute('closing', '');
+   menuEl.setAttribute('closing', '');
+   
+   // clear any active `menuTimer`
+   clearTimeout(this._menuTimer);
+
+   this._menuTimer = setTimeout(() => {
+     // Hide the backdrop
+     // by setting the `hidden` attribute / property of `backdropEl` to `true`
+     backdropEl.hidden = true;
+     // Now, hide the menu element
+     menuEl.hidden = true; 
+
+     // removing the `closing` attribute / property from both `backdropEl and `menuEl`...
+     backdropEl.removeAttribute('closing');
+     menuEl.removeAttribute('closing');
+
+     // remove an `opened` attribute to `menuEl`
+     menuEl.removeAttribute('opened');
+      
+     // if there's a callback function, execute / run it !
+     if (callback) { callback() }
+
+     // DEBUG [4dbsmaster](2): tell me about it ;)
+     console.log(`[closeMenu]: backdrop & menu opened`);
+     
+   }, duration);
+
+   // DEBUG [4dbsmaster](1): tell me about it :)
+   console.log(`\x1b[35m[closeMenu](1): type => ${type} & duration => ${duration}\x1b[0m`);
+   console.log(`\x1b[35m[closeMenu](2): menuEl => \x1b[0m`, menuEl);
+  
+
+ }
 
 
  /**
@@ -779,6 +990,47 @@ class ToDoListApp {
   }
 
   /**
+   * Method used to add listeners to the backdrop events.
+   *
+   * @private
+   */
+  #_addBackdropListeners() {
+    // Get all the backdrop elements as `backdropEls`
+    let backdropEls = document.getElementsByClassName('backdrop');
+    
+    // For each backdrop element...
+    backdropEls.forEach((backdropEl) => {
+      // ...add a click event listener
+      backdropEl.addEventListener('click', this.#_backdropClickHandler);
+    });
+
+  }
+
+  /**
+   * Handler that is called whenever a backdrop is clicked
+   *
+   * @param { Event } event
+   * @private
+   */
+  #_backdropClickHandler(event) {
+     
+    // DEBUG [4dbsmaster]: tell me about it :)
+    console.log(`\x1b[33m[#_backdropClickHandler]: event => \x1b[0m`, event);
+  }
+
+
+  /**
+   * Returns the menu extenion of the given `type` in a correct format
+   *
+   * @param { String } type - The menu's type
+   *
+   * @returns { String } menuExt - The extension of the menu's id 
+   */
+  #_getMenuExtByType(type = DEFAULT_TYPE) {
+    return (type === INNER_TYPE) ? 'InnerMenu' : ((type === ASIDE_TYPE) ? 'AsideMenu' : '');
+  }
+
+  /**
    * Method used to add or install default listeners for the todolist page (i.e. `todolist.php`)
    */
   _addTodolistListeners() {
@@ -950,12 +1202,12 @@ class ToDoListApp {
 
 
 
-
 /* Let's wait again for the page to load by listening to the `load` event */
 /* When the current page is done loading... */
 window.addEventListener('load', (event) => {
   // ...create an object of the ToDoListApp class as `tdlApp` (a global variable)
   window.tdlApp = new ToDoListApp(LANG, THEME, PAGE_HOME);
+
   // Install Media Query Watcher with a "460px" breakpoint
   window.tdlApp.installMediaQueryWatcher(460, _onMobileLayout, _onWideLayout);
 
